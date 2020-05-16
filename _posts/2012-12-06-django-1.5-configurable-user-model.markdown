@@ -1,0 +1,36 @@
+---
+layout: post
+title: "Django 1.5 configurable User model"
+date:   2012-12-06 12:22:05 -0300
+categories: python django
+category: django
+---
+
+Django 1.5 adds a new feature named "configurable User model" and here is one
+of the ways you can use it.
+
+{% highlight python linenos %}
+class Account(AbstractBaseUser):
+    email = models.EmailField(max_length=40, unique=True, db_index=True)
+    is_business = BooleanField(default=False)
+    #... Other shared info is added here.
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['is_business']
+
+    # This is deprecated in 1.5 but we use it to get profiles extension
+    def get_profile():
+        if self.is_business:
+            return BusinessProfile.objects.get(email=self.email) # or self.business_profile
+        return UserProfile.objects.get(email=self.email) # or self.user_profile
+
+
+class BusinessProfile(models.Model):
+    account = models.ForeignKey(Account, related_name='business_profile')
+    #...
+
+
+class UserProfile(models.Model):
+    account = models.ForeignKey(Account, related_name='user_profile')
+    #...
+{% endhighlight %}
