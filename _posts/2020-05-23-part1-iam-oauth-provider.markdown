@@ -36,7 +36,7 @@ OAuth is an open standard for access delegation, commonly used as a way for Inte
 Django is a high-level Python Web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of Web development, so you can focus on writing your app without needing to reinvent the wheel.
 -- [Django website]
 
-Lets get start by creating a virtual environment:
+Let's get started by creating a virtual environment:
 
 {% highlight shell %}
 mkproject iam
@@ -220,7 +220,7 @@ Running migrations:
   Applying oauth2_provider.0002_auto_20190406_1805... OK
 {% endhighlight %}
 
-Include `oauth2_provider.urls` to `iam/urls.py` as follow:
+Include `oauth2_provider.urls` to `iam/urls.py` as follows:
 
 {% highlight python %}
 from django.contrib import admin
@@ -267,7 +267,7 @@ We will start by given a try to the grant types listed below:
 * Authorization code
 * Client credential
 
-This two grant types cover the most initialy used uses cases.
+This two grant types cover the most initially used uses cases.
 
 # Authorization Code
 
@@ -306,7 +306,7 @@ Note the parameters we pass:
 
 This identifies your application, the user is asked to authorize your application to access its resources.
 
-Go ahead an authorize the `web-app`
+Go ahead and authorize the `web-app`
 
 ![Authorization code authorize web-app](/images/application-authorize-web-app.png)
 
@@ -381,9 +381,9 @@ export ID=axXSSBVuvOyGVzh4PurvKaq5MHXMm7FtrHgDMi4u
 export SECRET=1fuv5WVfR7A5BlF0o155H7s5bLgXlwWLhi3Y7pdJ9aJuCdl0XV5Cxgd0tri7nSzC80qyrovh8qFXFHgFAAc0ldPNn5ZYLanxSm1SI1rxlRrWUP591wpHDGa3pSpB6dCZ
 {% endhighlight %}
 
-The Client Credential flow is more simple than the  Authorization Code flow.
+The Client Credential flow is simpler than the Authorization Code flow.
 
-We need encode client_id and client_secret as HTTP base authentication encoded in base64 I use the folow code to do that.
+We need to encode client_id and client_secret as HTTP base authentication encoded in base64 I use the following code to do that.
 
 {% highlight python %}
 >>> import base64
@@ -442,4 +442,3 @@ At next part we will build a simple API to protect with OAuth2.
 [RFC6749]: https://tools.ietf.org/html/rfc6749#section-1.3
 [Grant Types]: https://oauth.net/2/grant-types/
 [URL]: http://127.0.0.1:8000/o/authorize/?response_type=code&client_id=vW1RcAl7Mb0d5gyHNQIAcH110lWoOW2BmWJIero8&redirect_uri=http://127.0.0.1:8000/noexist/callback
-
