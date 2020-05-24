@@ -85,9 +85,6 @@ That’ll create a directory `users`, which is laid out like this:
 ├── iam
 │   ├── asgi.py
 │   ├── __init__.py
-│   ├── __pycache__
-│   │   ├── __init__.cpython-38.pyc
-│   │   └── settings.cpython-38.pyc
 │   ├── settings.py
 │   ├── urls.py
 │   └── wsgi.py
